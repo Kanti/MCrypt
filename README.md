@@ -3,11 +3,11 @@
 ## install via Composer
 command line:
 ```bash
-composer install kanti/mycrpt ~1
+composer install kanti/mcrypt ~1
 ```
 composer.json:
 ```json
-"kanti/mycrpt": "~1"
+"kanti/mcrypt": "~1"
 ```
 
 ## how to use it
