@@ -7,7 +7,9 @@ composer require kanti/mcrypt ~1
 ```
 composer.json:
 ```json
-"kanti/mcrypt": "~1"
+"require":{
+  "kanti/mcrypt": "~1"
+}
 ```
 
 ## how to use it
