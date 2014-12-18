@@ -4,6 +4,7 @@ namespace Kanti;
 
 class MCrypt {
     public static function encrypt($key, $data, array $options = array()) {
+        $data = is_string($data) ? $data : json_encode($data);
         $algorithm = empty($options['algorithm']) ?
                 MCRYPT_RIJNDAEL_256 :
                 $options['algorithm'];
