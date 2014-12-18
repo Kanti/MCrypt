@@ -3,7 +3,7 @@
 ## install via Composer
 command line:
 ```bash
-composer install kanti/mcrypt ~1
+composer require kanti/mcrypt ~1
 ```
 composer.json:
 ```json
