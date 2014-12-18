@@ -2,16 +2,18 @@
 
 namespace Kanti;
 
-class MCrypt {
-    public static function encrypt($key, $data, array $options = array()) {
-        $data = is_string($data) ? $data : json_encode($data);
+class MCrypt
+{
+    public static function encrypt($key, $data, array $options = array())
+    {
+        $data = json_encode($data);
         $algorithm = empty($options['algorithm']) ?
-                MCRYPT_RIJNDAEL_256 :
-                $options['algorithm'];
+            MCRYPT_RIJNDAEL_256 :
+            $options['algorithm'];
 
         $mode = empty($options['mode']) ?
-                MCRYPT_MODE_CBC :
-                $options['mode'];
+            MCRYPT_MODE_CBC :
+            $options['mode'];
 
         $ivSize = mcrypt_get_iv_size($algorithm, $mode);
         $keySize = mcrypt_get_key_size($algorithm, $mode);
@@ -33,12 +35,13 @@ class MCrypt {
             'data' => $encrypted,
             'algorithm' => $algorithm,
             'mode' => $mode,
-        ), JSON_HEX_QUOT|JSON_HEX_AMP|JSON_HEX_APOS|JSON_HEX_TAG);
+        ), JSON_HEX_QUOT | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_TAG);
 
         return $data;
     }
 
-    public static function decrypt($key, $data) {
+    public static function decrypt($key, $data)
+    {
         $data = is_array($data) ? $data : json_decode($data, true);
 
         $algorithm = $data['algorithm'];
@@ -56,7 +59,7 @@ class MCrypt {
         $decrypted = mcrypt_decrypt($algorithm, $key, $encrypted, $mode, $iv);
         $decrypted = rtrim($decrypted, "\0");
 
-        return $decrypted;
+        return json_decode($decrypted, true);
     }
 }
 
