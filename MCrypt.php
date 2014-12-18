@@ -1,9 +1,9 @@
 <?php
 
-namespace kafene;
+namespace Kanti;
 
 class MCrypt {
-    public static function encrypt($key, $data, array $options = []) {
+    public static function encrypt($key, $data, array $options = array()) {
         $algorithm = empty($options['algorithm']) ?
                 MCRYPT_RIJNDAEL_256 :
                 $options['algorithm'];
@@ -27,12 +27,12 @@ class MCrypt {
 
         $iv = base64_encode($iv);
 
-        $data = json_encode([
+        $data = json_encode(array(
             'iv' => $iv,
             'data' => $encrypted,
             'algorithm' => $algorithm,
             'mode' => $mode,
-        ], JSON_HEX_QUOT|JSON_HEX_AMP|JSON_HEX_APOS|JSON_HEX_TAG);
+        ), JSON_HEX_QUOT|JSON_HEX_AMP|JSON_HEX_APOS|JSON_HEX_TAG);
 
         return $data;
     }

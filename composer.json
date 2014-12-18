@@ -1,0 +1,30 @@
+{
+    "name": "kanti/mcrypt",
+    "description": "Simpel Static mcrypt helper object",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kanti",
+            "homepage": "http://kanti.de",
+            "role": "Developer"
+        },
+        {
+            "name": "kafene",
+            "homepage": "https://github.com/kafene",
+            "role": "Initial Developer"
+        }
+    ],
+    "support": {
+        "forum": "https://github.com/Kanti/MCrypt",
+        "issues": "https://github.com/Kanti/MCrypt/issues",
+        "source": "https://github.com/Kanti/MCrypt"
+    },
+    "require":{
+        "php": ">=5.3"
+    },
+    "autoload":{
+        "psr-4":{
+            "Kanti\\":""
+        }
+    }
+}
