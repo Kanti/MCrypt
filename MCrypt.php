@@ -58,10 +58,10 @@ class MCrypt
         $key = substr($key, 0, $keySize);
 
         $decrypted = mcrypt_decrypt($algorithm, $key, $encrypted, $mode, $iv);
+        $decrypted = rtrim($decrypted, "\0");
         if (hash("whirlpool", $decrypted) !== $data['hash']) {
             throw new \Exception("wrong key for MCrypt::decrypt");
         }
-        $decrypted = rtrim($decrypted, "\0");
         return json_decode($decrypted, true);
     }
 }
