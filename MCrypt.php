@@ -35,6 +35,7 @@ class MCrypt
             'data' => $encrypted,
             'algorithm' => $algorithm,
             'mode' => $mode,
+            'hash' => hash("whirlpool", $data),
         ), JSON_HEX_QUOT | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_TAG);
 
         return $data;
@@ -57,9 +58,10 @@ class MCrypt
         $key = substr($key, 0, $keySize);
 
         $decrypted = mcrypt_decrypt($algorithm, $key, $encrypted, $mode, $iv);
+        if (hash("whirlpool", $decrypted) !== $data['hash']) {
+            throw new \Exception("wrong key for MCrypt::decrypt");
+        }
         $decrypted = rtrim($decrypted, "\0");
-
         return json_decode($decrypted, true);
     }
 }
-

@@ -34,3 +34,9 @@ var_dump($data);
 |algorithm|``MCRYPT_RIJNDAEL_256``|
 |mode|``MCRYPT_MODE_CBC``|
 |iv|``php mcrypt_create_iv(mcrypt_get_iv_size($algorithm, $mode), MCRYPT_DEV_URANDOM)``|
+
+## Changlog
+
+### Version 1.3
+
+Incompatible to Version 1.2 Data.
