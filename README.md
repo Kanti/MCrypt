@@ -1,4 +1,5 @@
 # MCrypt helper object
+![https://github.com/Kanti/MCrypt/releases/latest](https://img.shields.io/badge/release-1.4-green.svg?style=flat-square) ![https://packagist.org/packages/kanti/mcrypt](https://img.shields.io/packagist/dt/kanti/mcrypt.svg?style=flat-square)
 
 ## install via Composer
 command line:
